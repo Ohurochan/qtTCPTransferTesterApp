@@ -192,9 +192,6 @@ void Server::sendFortune()
     connect(clientConnection, SIGNAL(disconnected()),
             clientConnection, SLOT(deleteLater()));
 
-#ifdef _DEBUG
-    qDebug() << block;
-#endif
 
     // データを送信
     clientConnection->write(block);
