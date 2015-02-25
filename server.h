@@ -48,6 +48,7 @@ class QLabel;
 class QPushButton;
 class QTcpServer;
 class QNetworkSession;
+class QComboBox;
 QT_END_NAMESPACE
 
 //! [0]
@@ -61,14 +62,22 @@ public:
 private slots:
     void sessionOpened();
     void sendFortune();
+    void resetServerIP(QString);
 
 private:
     QLabel *statusLabel;
+    QComboBox *cmbIPAddress;
     QPushButton *quitButton;
     QTcpServer *tcpServer;
     QStringList fortunes;
     QNetworkSession *networkSession;
     QByteArray imageData;
+    QString serverIPAddress;
+    QPixmap pixScreenShot;
+
+    void screenShot();
+
+    void updateUI();
 };
 //! [0]
 
